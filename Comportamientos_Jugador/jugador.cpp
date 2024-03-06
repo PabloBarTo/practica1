@@ -118,5 +118,35 @@ int ComportamientoJugador::interact(Action accion, int valor)
 }
 
 void ComportamientoJugador::PonerTerrenoEnMatriz(const vector<unsigned char> &terreno, const state &st, vector<vector<unsigned char>> &matriz){
+	rellenarPrecipicios(matriz);
 	matriz[st.fil][st.col] = terreno[0];
+}
+
+void ComportamientoJugador::rellenarPrecipicios(vector<vector<unsigned char>> &matriz){
+	int filas = matriz.size();
+	int columnas = matriz[0].size();
+
+	for(int i = 0; i < 3; i++){
+		for(int j = 0; j < columnas; j++){
+			matriz[i][j] = 'P';
+		}
+	}
+
+	for(int i = filas-3; i < filas; i++){
+		for(int j = 0; j < columnas; j++){
+			matriz[i][j] = 'P';
+		}
+	}
+
+	for(int i = 0; i < filas; i++){
+		for(int j = 0; j < 3; j++){
+			matriz[i][j] = 'P';
+		}
+	}
+
+	for(int i = 0; i < filas; i++){
+		for(int j = columnas-3; j < columnas; j++){
+			matriz[i][j] = 'P';
+		}
+	}
 }
