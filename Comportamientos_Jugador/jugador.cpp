@@ -120,6 +120,142 @@ int ComportamientoJugador::interact(Action accion, int valor)
 void ComportamientoJugador::PonerTerrenoEnMatriz(const vector<unsigned char> &terreno, const state &st, vector<vector<unsigned char>> &matriz){
 	rellenarPrecipicios(matriz);
 	matriz[st.fil][st.col] = terreno[0];
+	if(st.brujula == 0){
+		matriz[st.fil-1][st.col-1] = terreno[1];
+		matriz[st.fil-1][st.col] = terreno[2];
+		matriz[st.fil-1][st.col+1] = terreno[3];
+		matriz[st.fil-2][st.col-2] = terreno[4];
+		matriz[st.fil-2][st.col-1] = terreno[5];
+		matriz[st.fil-2][st.col] = terreno[6];
+		matriz[st.fil-2][st.col+1] = terreno[7];
+		matriz[st.fil-2][st.col+2] = terreno[8];
+		matriz[st.fil-3][st.col-3] = terreno[9];
+		matriz[st.fil-3][st.col-2] = terreno[10];
+		matriz[st.fil-3][st.col-1] = terreno[11];
+		matriz[st.fil-3][st.col] = terreno[12];
+		matriz[st.fil-3][st.col+1] = terreno[13];
+		matriz[st.fil-3][st.col+2] = terreno[14];
+		matriz[st.fil-3][st.col+3] = terreno[15];
+	}
+	else if(st.brujula == 2){
+		matriz[st.fil-1][st.col+1] = terreno[1];
+		matriz[st.fil][st.col+1] = terreno[2];
+		matriz[st.fil+1][st.col+1] = terreno[3];
+		matriz[st.fil-2][st.col+2] = terreno[4];
+		matriz[st.fil-1][st.col+2] = terreno[5];
+		matriz[st.fil][st.col+2] = terreno[6];
+		matriz[st.fil+1][st.col+2] = terreno[7];
+		matriz[st.fil+2][st.col+2] = terreno[8];
+		matriz[st.fil-3][st.col+3] = terreno[9];
+		matriz[st.fil-2][st.col+3] = terreno[10];
+		matriz[st.fil-1][st.col+3] = terreno[11];
+		matriz[st.fil][st.col+3] = terreno[12];
+		matriz[st.fil+1][st.col+3] = terreno[13];
+		matriz[st.fil+2][st.col+3] = terreno[14];
+		matriz[st.fil+3][st.col+3] = terreno[15];
+	}
+	else if(st.brujula == 4){
+		matriz[st.fil+1][st.col+1] = terreno[1];
+		matriz[st.fil+1][st.col] = terreno[2];
+		matriz[st.fil+1][st.col-1] = terreno[3];
+		matriz[st.fil+2][st.col+2] = terreno[4];
+		matriz[st.fil+2][st.col+1] = terreno[5];
+		matriz[st.fil+2][st.col] = terreno[6];
+		matriz[st.fil+2][st.col-1] = terreno[7];
+		matriz[st.fil+2][st.col-2] = terreno[8];
+		matriz[st.fil+3][st.col+3] = terreno[9];
+		matriz[st.fil+3][st.col+2] = terreno[10];
+		matriz[st.fil+3][st.col+1] = terreno[11];
+		matriz[st.fil+3][st.col] = terreno[12];
+		matriz[st.fil+3][st.col-1] = terreno[13];
+		matriz[st.fil+3][st.col-2] = terreno[14];
+		matriz[st.fil+3][st.col-3] = terreno[15];
+	}
+	else if(st.brujula == 6){
+		matriz[st.fil-1][st.col-1] = terreno[3];
+		matriz[st.fil][st.col-1] = terreno[2];
+		matriz[st.fil+1][st.col-1] = terreno[1];
+		matriz[st.fil-2][st.col-2] = terreno[8];
+		matriz[st.fil-1][st.col-2] = terreno[7];
+		matriz[st.fil][st.col-2] = terreno[6];
+		matriz[st.fil+1][st.col-2] = terreno[5];
+		matriz[st.fil+2][st.col-2] = terreno[4];
+		matriz[st.fil-3][st.col-3] = terreno[15];
+		matriz[st.fil-2][st.col-3] = terreno[14];
+		matriz[st.fil-1][st.col-3] = terreno[13];
+		matriz[st.fil][st.col-3] = terreno[12];
+		matriz[st.fil+1][st.col-3] = terreno[11];
+		matriz[st.fil+2][st.col-3] = terreno[10];
+		matriz[st.fil+3][st.col-3] = terreno[9];
+	}
+	else if(st.brujula == 1){
+		matriz[st.fil-1][st.col] = terreno[1];
+		matriz[st.fil-1][st.col+1] = terreno[2];
+		matriz[st.fil][st.col+1] = terreno[3];
+		matriz[st.fil-2][st.col] = terreno[4];
+		matriz[st.fil-2][st.col+1] = terreno[5];
+		matriz[st.fil-2][st.col+2] = terreno[6];
+		matriz[st.fil-1][st.col+2] = terreno[7];
+		matriz[st.fil][st.col+2] = terreno[8];
+		matriz[st.fil-3][st.col] = terreno[9];
+		matriz[st.fil-3][st.col+1] = terreno[10];
+		matriz[st.fil-3][st.col+2] = terreno[11];
+		matriz[st.fil-3][st.col+3] = terreno[12];
+		matriz[st.fil-2][st.col+3] = terreno[13];
+		matriz[st.fil-1][st.col+3] = terreno[14];
+		matriz[st.fil][st.col+3] = terreno[15];
+	}
+	else if(st.brujula == 3){
+		matriz[st.fil][st.col+1] = terreno[1];
+		matriz[st.fil+1][st.col+1] = terreno[2];
+		matriz[st.fil+1][st.col] = terreno[3];
+		matriz[st.fil][st.col+2] = terreno[4];
+		matriz[st.fil+1][st.col+2] = terreno[5];
+		matriz[st.fil+2][st.col+2] = terreno[6];
+		matriz[st.fil+2][st.col+1] = terreno[7];
+		matriz[st.fil+2][st.col] = terreno[8];
+		matriz[st.fil][st.col+3] = terreno[9];
+		matriz[st.fil+1][st.col+3] = terreno[10];
+		matriz[st.fil+2][st.col+3] = terreno[11];
+		matriz[st.fil+3][st.col+3] = terreno[12];
+		matriz[st.fil+3][st.col+2] = terreno[13];
+		matriz[st.fil+3][st.col+1] = terreno[14];
+		matriz[st.fil+3][st.col] = terreno[15];
+	}
+	else if(st.brujula == 5){
+		matriz[st.fil+1][st.col] = terreno[1];
+		matriz[st.fil+1][st.col-1] = terreno[2];
+		matriz[st.fil][st.col-1] = terreno[3];
+		matriz[st.fil+2][st.col] = terreno[4];
+		matriz[st.fil+2][st.col-1] = terreno[5];
+		matriz[st.fil+2][st.col-2] = terreno[6];
+		matriz[st.fil+1][st.col-2] = terreno[7];
+		matriz[st.fil][st.col-2] = terreno[8];
+		matriz[st.fil+3][st.col] = terreno[9];
+		matriz[st.fil+3][st.col-1] = terreno[10];
+		matriz[st.fil+3][st.col-2] = terreno[11];
+		matriz[st.fil+3][st.col-3] = terreno[12];
+		matriz[st.fil+2][st.col-3] = terreno[13];
+		matriz[st.fil+1][st.col-3] = terreno[14];
+		matriz[st.fil][st.col-3] = terreno[15];
+	}
+	else if(st.brujula == 7){
+		matriz[st.fil][st.col-1] = terreno[1];
+		matriz[st.fil-1][st.col-1] = terreno[2];
+		matriz[st.fil-1][st.col] = terreno[3];
+		matriz[st.fil][st.col-2] = terreno[4];
+		matriz[st.fil-1][st.col-2] = terreno[5];
+		matriz[st.fil-2][st.col-2] = terreno[6];
+		matriz[st.fil-2][st.col-1] = terreno[7];
+		matriz[st.fil-2][st.col] = terreno[8];
+		matriz[st.fil][st.col-3] = terreno[9];
+		matriz[st.fil-1][st.col-3] = terreno[10];
+		matriz[st.fil-2][st.col-3] = terreno[11];
+		matriz[st.fil-3][st.col-3] = terreno[12];
+		matriz[st.fil-3][st.col-2] = terreno[13];
+		matriz[st.fil-3][st.col-1] = terreno[14];
+		matriz[st.fil-3][st.col] = terreno[15];
+	}
 }
 
 void ComportamientoJugador::rellenarPrecipicios(vector<vector<unsigned char>> &matriz){
