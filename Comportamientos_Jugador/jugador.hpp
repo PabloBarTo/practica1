@@ -22,6 +22,14 @@ class ComportamientoJugador : public Comportamiento{
       last_action = actIDLE;
       girar_derecha = false;
       bien_situado = false;
+      bikini = false;
+      zapatillas = false;
+      contador = 0;
+      contador3 = 0;
+      contador8 = 0;
+      contador4 = 0;
+      contador15 = 0;
+      contador9 = 0;
 
     }
 
@@ -39,5 +47,13 @@ class ComportamientoJugador : public Comportamiento{
     Action last_action;
     bool girar_derecha;
     bool bien_situado;
+    bool bikini;
+    bool zapatillas;
+    int contador;
+    int contador3;
+    int contador8;
+    int contador4;
+    int contador15;
+    int contador9;
 };
 #endif
