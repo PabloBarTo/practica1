@@ -30,6 +30,8 @@ class ComportamientoJugador : public Comportamiento{
       contador4 = 0;
       contador15 = 0;
       contador9 = 0;
+      cant_bateria = 5000;
+      cargado = false;
 
     }
 
@@ -55,5 +57,7 @@ class ComportamientoJugador : public Comportamiento{
     int contador4;
     int contador15;
     int contador9;
+    int cant_bateria;
+    bool cargado;
 };
 #endif
