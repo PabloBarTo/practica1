@@ -9,6 +9,20 @@ Action ComportamientoJugador::think(Sensores sensores)
 
 	int a;
 
+	casillas_avanzadas = 15;
+
+	if(mapaResultado.size() <= 30){
+		casillas_avanzadas = 5;
+	}
+	else if(mapaResultado.size() > 30 && mapaResultado.size() <= 50){
+		casillas_avanzadas = 15;
+	}
+	else if(mapaResultado.size() > 50 && mapaResultado.size() <= 75){
+		casillas_avanzadas = 20;
+	}
+	else if(mapaResultado.size() > 75 && mapaResultado.size() <= 100){
+		casillas_avanzadas = 25;
+	}
 	// Mostrar el valor de los sensores
 	cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC;
 	switch (sensores.sentido)
@@ -77,11 +91,13 @@ Action ComportamientoJugador::think(Sensores sensores)
 			a = current_state.brujula;
 			a = (a + 1) % 8;
 			current_state.brujula = static_cast<Orientacion>(a);
+			girar_derecha = (rand()%2==0);
 			break;
 		case actTURN_L:
 			a = current_state.brujula;
 			a = (a + 6) % 8;
 			current_state.brujula = static_cast<Orientacion>(a);
+			girar_derecha = (rand()%2==0);
 			break;
 	}
 
@@ -267,19 +283,16 @@ Action ComportamientoJugador::think(Sensores sensores)
 		}
 	
 	}  
-	else{
-		if((sensores.terreno[2]=='T' or sensores.terreno[2]=='S' or sensores.terreno[2]=='G' or sensores.terreno[2]=='K' or sensores.terreno[2]=='D' or sensores.terreno[2]=='B' or sensores.terreno[2]=='A' or sensores.terreno[2]=='X') and sensores.agentes[2]=='_'){
-			accion = actWALK;
-		}
-		else if (!girar_derecha){
-			accion = actTURN_L;
-			girar_derecha = (rand()%2==0);
-		}
-		else{
-			accion = actTURN_SR;
-			girar_derecha = (rand()%2==0);
-		
-		}
+	else if(avanzadas_actual >= casillas_avanzadas || sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || (sensores.terreno[2] == 'A' && !bikini) || (sensores.terreno[2] == 'B' && !zapatillas)){
+        avanzadas_actual = 0;
+        if(girar_derecha)
+            accion = actTURN_SR;
+        else
+            accion = actTURN_L;
+	}
+	else if(((sensores.terreno[2] == 'T' || sensores.terreno[2] == 'S' || sensores.terreno[2] == 'G' || sensores.terreno[2] == 'D' || sensores.terreno[2] == 'K' || sensores.terreno[2] == 'X' || (sensores.terreno[2] == 'B' && zapatillas) || (sensores.terreno[2] == 'A' && bikini)))){
+		accion = actWALK;
+        avanzadas_actual++;
 	}
 
 	last_action = accion;

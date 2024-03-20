@@ -32,6 +32,8 @@ class ComportamientoJugador : public Comportamiento{
       contador9 = 0;
       cant_bateria = 5000;
       cargado = false;
+      casillas_avanzadas = 0;
+      avanzadas_actual = 0;
 
     }
 
@@ -59,5 +61,7 @@ class ComportamientoJugador : public Comportamiento{
     int contador9;
     int cant_bateria;
     bool cargado;
+    int casillas_avanzadas;
+    int avanzadas_actual;
 };
 #endif
