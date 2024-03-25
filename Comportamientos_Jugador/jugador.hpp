@@ -63,5 +63,6 @@ class ComportamientoJugador : public Comportamiento{
     bool cargado;
     int casillas_avanzadas;
     int avanzadas_actual;
+    int contador_giro;
 };
 #endif
