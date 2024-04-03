@@ -34,6 +34,12 @@ class ComportamientoJugador : public Comportamiento{
       cargado = false;
       casillas_avanzadas = 0;
       avanzadas_actual = 0;
+      salir_zona_izquierda = 0;
+      salir_zona_derecha = 0;
+      contador_dig10 = 0;
+      contador_dig9 = 0;
+      contador_dig11 = 0;
+      contador_dig12 = 0;
 
     }
 
@@ -63,6 +69,11 @@ class ComportamientoJugador : public Comportamiento{
     bool cargado;
     int casillas_avanzadas;
     int avanzadas_actual;
-    int contador_giro;
+    int salir_zona_izquierda;
+    int salir_zona_derecha;
+    int contador_dig10;
+    int contador_dig9;
+    int contador_dig11;
+    int contador_dig12;
 };
 #endif
