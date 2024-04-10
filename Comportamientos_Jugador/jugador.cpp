@@ -9,19 +9,18 @@ Action ComportamientoJugador::think(Sensores sensores)
 
 	int a;
 
-	casillas_avanzadas = 15;
 
 	if(mapaResultado.size() <= 30){
-		casillas_avanzadas = 5;
+		casillas_avanzadas = 8;
 	}
 	else if(mapaResultado.size() > 30 && mapaResultado.size() <= 50){
 		casillas_avanzadas = 25;
 	}
 	else if(mapaResultado.size() > 50 && mapaResultado.size() <= 75){
-		casillas_avanzadas = 5;
+		casillas_avanzadas = 15;
 	}
 	else if(mapaResultado.size() > 75 && mapaResultado.size() <= 100){
-		casillas_avanzadas = 10;
+		casillas_avanzadas = 48;
 	}
 	// Mostrar el valor de los sensores
 	cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC;
@@ -195,7 +194,9 @@ Action ComportamientoJugador::think(Sensores sensores)
             (((sensores.terreno[5] == 'G' && !bien_situado) || sensores.terreno[5] == 'X' || (sensores.terreno[5] == 'K' && !bikini) ||
             (sensores.terreno[5] == 'D' && !zapatillas)) && sensores.agentes[5] == '_') ||
             (((sensores.terreno[11] == 'G' && !bien_situado) || sensores.terreno[11] == 'X' || (sensores.terreno[11] == 'K' && !bikini) ||
-            (sensores.terreno[11] == 'D' && !zapatillas)) && sensores.agentes[11] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador > 0) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
+            (sensores.terreno[11] == 'D' && !zapatillas)) && sensores.agentes[11] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && 
+			contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador > 0) && 
+			(sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -205,11 +206,11 @@ Action ComportamientoJugador::think(Sensores sensores)
 		contador_dig10 = 0;
 		contador_dig11 = 0;
 		contador_dig12 = 0;
-		if (contador == 0) {
+		if(contador == 0) {
             accion = actTURN_L;
             contador++;
         } 
-		else if (contador == 1) {
+		else if(contador == 1) {
             if(sensores.terreno[2] != 'M' && sensores.agentes[2] == '_'){
                 accion = actWALK;
                 contador++;
@@ -218,7 +219,7 @@ Action ComportamientoJugador::think(Sensores sensores)
                 contador = 0;
             }
         } 
-		else if (contador > 1) {
+		else if(contador > 1) {
             accion = actTURN_SR;
             if(contador == 3){
 				contador = 0;
@@ -233,7 +234,9 @@ Action ComportamientoJugador::think(Sensores sensores)
              (((sensores.terreno[7] == 'G' && !bien_situado) || sensores.terreno[7] == 'X' || (sensores.terreno[7] == 'K' && !bikini) ||
                (sensores.terreno[7] == 'D' && !zapatillas)) && sensores.agentes[7] == '_') ||
              (((sensores.terreno[13] == 'G' && !bien_situado) || sensores.terreno[13] == 'X' || (sensores.terreno[13] == 'K' && !bikini) ||
-               (sensores.terreno[13] == 'D' && !zapatillas)) && sensores.agentes[13] == '_') && (contador == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador3 > 0) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
+               (sensores.terreno[13] == 'D' && !zapatillas)) && sensores.agentes[13] == '_') && (contador == 0 && contador8 == 0 && contador4 == 0 && 
+			   contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador3 > 0) && 
+			   (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
         contador = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -264,7 +267,9 @@ Action ComportamientoJugador::think(Sensores sensores)
 	else if((((((sensores.terreno[8] == 'G' && !bien_situado) || sensores.terreno[8] == 'X' || (sensores.terreno[8] == 'K' && !bikini) ||
              (sensores.terreno[8] == 'D' && !zapatillas)) && sensores.agentes[8] == '_') ||
              (((sensores.terreno[14] == 'G' && !bien_situado) || sensores.terreno[14] == 'X' || (sensores.terreno[14] == 'K' && !bikini) ||
-             (sensores.terreno[14] == 'D' && !zapatillas)) && sensores.agentes[14] == '_') && (contador == 0 && contador3 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador8 > 0 ) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
+             (sensores.terreno[14] == 'D' && !zapatillas)) && sensores.agentes[14] == '_') && (contador == 0 && contador3 == 0 && contador4 == 0 && 
+			 contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador8 > 0 ) && 
+			 (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
         contador = 0;
 		contador3 = 0;
 		contador4 = 0;
@@ -278,7 +283,7 @@ Action ComportamientoJugador::think(Sensores sensores)
             accion = actTURN_SR;
             contador8++;
         }
-		else if (contador8 <= 2){
+		else if(contador8 <= 2){
             if(sensores.terreno[2] != 'M' && sensores.agentes[2] == '_') {
                 accion = actWALK;
                 contador8++;
@@ -295,7 +300,9 @@ Action ComportamientoJugador::think(Sensores sensores)
 	else if((((((sensores.terreno[4] == 'G' && !bien_situado) || sensores.terreno[4] == 'X' || (sensores.terreno[4] == 'K' && !bikini) ||
                (sensores.terreno[4] == 'D' && !zapatillas)) && sensores.agentes[4] == '_') ||
              (((sensores.terreno[10] == 'G' && !bien_situado) || sensores.terreno[10] == 'X' || (sensores.terreno[10] == 'K' && !bikini) ||
-               (sensores.terreno[10] == 'D' && !zapatillas)) && sensores.agentes[10] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador4 > 0) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
+               (sensores.terreno[10] == 'D' && !zapatillas)) && sensores.agentes[10] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && 
+			   contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador4 > 0) && 
+			   (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)) {
         contador = 0;
 		contador3 = 0;
 		contador8 = 0;
@@ -309,7 +316,7 @@ Action ComportamientoJugador::think(Sensores sensores)
             accion = actTURN_L;
             contador4++;
         }
-		else if (contador4 <= 2){
+		else if(contador4 <= 2){
             if(sensores.terreno[2] != 'M' && sensores.agentes[2] == '_') {
                 accion = actWALK;
                 contador4++;
@@ -318,7 +325,7 @@ Action ComportamientoJugador::think(Sensores sensores)
                 contador4 = 0;
             }
         }
-		else if (contador4 > 2){
+		else if(contador4 > 2){
             accion = actTURN_SR;
 			if(contador4 == 4){
 				contador4 = 0;
@@ -329,7 +336,9 @@ Action ComportamientoJugador::think(Sensores sensores)
         }
     }
 	else if((((((sensores.terreno[15] == 'G' && !bien_situado) || sensores.terreno[15] == 'X' || (sensores.terreno[15] == 'K' && !bikini) ||
-               (sensores.terreno[15] == 'D' && !zapatillas)) && sensores.agentes[15] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && contador4 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador15 > 0) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
+               (sensores.terreno[15] == 'D' && !zapatillas)) && sensores.agentes[15] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && 
+			   contador4 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador15 > 0) && 
+			   (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
         contador = 0;
 		contador3 = 0;
 		contador8 = 0;
@@ -342,20 +351,25 @@ Action ComportamientoJugador::think(Sensores sensores)
 		if(contador15 >= 0 && contador15 < 2){
             accion = actTURN_SR;
             contador15++;
-        }else if (contador15 <= 4){
+        }
+		else if(contador15 <= 4){
             if(sensores.terreno[2] != 'M' && sensores.agentes[2] == '_') {
                 accion = actWALK;
                 contador15++;
-            }else{
+            }
+			else{
                 contador15 = 0;
             }
-        }else{
+        }
+		else{
             accion = actTURN_L;
             contador15 = 0;
         }
     }
 	else if((((((sensores.terreno[9] == 'G' && !bien_situado) || sensores.terreno[9] == 'X' || (sensores.terreno[9] == 'K' && !bikini) ||
-               (sensores.terreno[9] == 'D' && !zapatillas)) && sensores.agentes[9] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && contador4 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador15 > 0) && (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
+               (sensores.terreno[9] == 'D' && !zapatillas)) && sensores.agentes[9] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && 
+			   contador4 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0)) || contador15 > 0) && 
+			   (sensores.sentido == norte || sensores.sentido == sur || sensores.sentido == este || sensores.sentido == oeste)){
         contador = 0;
 		contador3 = 0;
 		contador8 = 0;
@@ -367,14 +381,17 @@ Action ComportamientoJugador::think(Sensores sensores)
 		if(contador9 == 0){
             accion = actTURN_L;
             contador9++;
-        }else if (contador9 <= 3){
+        }
+		else if (contador9 <= 3){
             if(sensores.terreno[2] != 'M' && sensores.agentes[2] == '_') {
                 accion = actWALK;
                 contador9++;
-            }else{
+            }
+			else{
                 contador9 = 0;
             }
-        }else if(contador9 > 3){
+        }
+		else if(contador9 > 3){
             accion = actTURN_SR;
 			if(contador9 == 5){
 				contador9 = 0;
@@ -389,7 +406,9 @@ Action ComportamientoJugador::think(Sensores sensores)
             (((sensores.terreno[4] == 'G' && !bien_situado) || sensores.terreno[4] == 'X' || (sensores.terreno[4] == 'K' && !bikini) ||
             (sensores.terreno[4] == 'D' && !zapatillas)) && sensores.agentes[4] == '_') ||
             (((sensores.terreno[9] == 'G' && !bien_situado) || sensores.terreno[9] == 'X' || (sensores.terreno[9] == 'K' && !bikini) ||
-            (sensores.terreno[9] == 'D' && !zapatillas)) && sensores.agentes[9] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador_dig9 > 0) && (sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
+            (sensores.terreno[9] == 'D' && !zapatillas)) && sensores.agentes[9] == '_') && (contador == 0 && contador3 == 0 && contador8 == 0 && 
+			contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador_dig9 > 0) && 
+			(sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -413,7 +432,9 @@ Action ComportamientoJugador::think(Sensores sensores)
             (((sensores.terreno[8] == 'G' && !bien_situado) || sensores.terreno[8] == 'X' || (sensores.terreno[8] == 'K' && !bikini) ||
             (sensores.terreno[8] == 'D' && !zapatillas)) && sensores.agentes[8] == '_') ||
             (((sensores.terreno[15] == 'G' && !bien_situado) || sensores.terreno[15] == 'X' || (sensores.terreno[15] == 'K' && !bikini) ||
-            (sensores.terreno[15] == 'D' && !zapatillas)) && sensores.agentes[15] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0 )) && (sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
+            (sensores.terreno[15] == 'D' && !zapatillas)) && sensores.agentes[15] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && 
+			contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0 && contador_dig12 == 0 )) && 
+			(sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -430,7 +451,9 @@ Action ComportamientoJugador::think(Sensores sensores)
             (((sensores.terreno[5] == 'G' && !bien_situado) || sensores.terreno[5] == 'X' || (sensores.terreno[5] == 'K' && !bikini) ||
             (sensores.terreno[5] == 'D' && !zapatillas)) && sensores.agentes[5] == '_') ||
             (((sensores.terreno[10] == 'G' && !bien_situado) || sensores.terreno[10] == 'X' || (sensores.terreno[10] == 'K' && !bikini) ||
-            (sensores.terreno[10] == 'D' && !zapatillas)) && sensores.agentes[10] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador_dig10 > 0) && (sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
+            (sensores.terreno[10] == 'D' && !zapatillas)) && sensores.agentes[10] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && 
+			contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig11 == 0 && contador_dig12 == 0))|| contador_dig10 > 0) && 
+			(sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -439,7 +462,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 		contador_dig9 = 0;
 		contador_dig11 = 0;
 		contador_dig12 = 0;
-		if (contador_dig10 == 0) {
+		if(contador_dig10 == 0) {
             accion = actTURN_SR;
             contador_dig10++;
         }
@@ -450,15 +473,16 @@ Action ComportamientoJugador::think(Sensores sensores)
 		else if(contador_dig10 == 2){
 			accion = actTURN_L;
 			contador_dig10 = 0;
-		}
-		
+		}		
 	}
 	else if((((((sensores.terreno[7] == 'G' && !bien_situado) || sensores.terreno[7] == 'X' || (sensores.terreno[7] == 'K' && !bikini) ||
             (sensores.terreno[7] == 'D' && !zapatillas)) && sensores.agentes[7] == '_') ||
             (((sensores.terreno[6] == 'G' && !bien_situado) || sensores.terreno[6] == 'X' || (sensores.terreno[6] == 'K' && !bikini) ||
             (sensores.terreno[6] == 'D' && !zapatillas)) && sensores.agentes[6] == '_') ||
             (((sensores.terreno[11] == 'G' && !bien_situado) || sensores.terreno[11] == 'X' || (sensores.terreno[11] == 'K' && !bikini) ||
-            (sensores.terreno[11] == 'D' && !zapatillas)) && sensores.agentes[11] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig12 == 0))|| contador_dig11 > 0) && (sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
+            (sensores.terreno[11] == 'D' && !zapatillas)) && sensores.agentes[11] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && 
+			contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig12 == 0))|| contador_dig11 > 0) && 
+			(sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -467,7 +491,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 		contador_dig9 = 0;
 		contador_dig10 = 0;
 		contador_dig12 = 0;
-		if (contador_dig11 == 0) {
+		if(contador_dig11 == 0) {
             accion = actTURN_SR;
             contador_dig11++;
         }
@@ -483,14 +507,15 @@ Action ComportamientoJugador::think(Sensores sensores)
 			accion = actTURN_L;
 			contador_dig11 = 0;
 		}
-		
 	}
 	else if((((((sensores.terreno[14] == 'G' && !bien_situado) || sensores.terreno[14] == 'X' || (sensores.terreno[14] == 'K' && !bikini) ||
             (sensores.terreno[14] == 'D' && !zapatillas)) && sensores.agentes[14] == '_') ||
             (((sensores.terreno[13] == 'G' && !bien_situado) || sensores.terreno[13] == 'X' || (sensores.terreno[13] == 'K' && !bikini) ||
             (sensores.terreno[13] == 'D' && !zapatillas)) && sensores.agentes[13] == '_') ||
             (((sensores.terreno[12] == 'G' && !bien_situado) || sensores.terreno[12] == 'X' || (sensores.terreno[12] == 'K' && !bikini) ||
-            (sensores.terreno[12] == 'D' && !zapatillas)) && sensores.agentes[12] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0))|| contador_dig12 > 0) && (sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
+            (sensores.terreno[12] == 'D' && !zapatillas)) && sensores.agentes[12] == '_') && (contador3 == 0 && contador8 == 0 && contador4 == 0 && 
+			contador15 == 0 && contador9 == 0 && contador_dig9 == 0 && contador_dig10 == 0 && contador_dig11 == 0))|| contador_dig12 > 0) && 
+			(sensores.sentido == noreste || sensores.sentido == noroeste || sensores.sentido == sureste || sensores.sentido == suroeste)) {
         contador3 = 0;
 		contador8 = 0;
 		contador4 = 0;
@@ -499,7 +524,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 		contador_dig9 = 0;
 		contador_dig10 = 0;
 		contador_dig11 = 0;
-		if (contador_dig12 == 0) {
+		if(contador_dig12 == 0) {
             accion = actTURN_SR;
             contador_dig12++;
         }
